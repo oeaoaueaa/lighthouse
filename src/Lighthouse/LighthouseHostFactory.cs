@@ -24,13 +24,13 @@ namespace Lighthouse
     /// </summary>
     public static class LighthouseHostFactory
     {
-        public static ActorSystem LaunchLighthouse(string ipAddress = null, int? specifiedPort = null, string systemName = "lighthouse")
+        public static ActorSystem LaunchLighthouse(string ipAddress = null, int? specifiedPort = null, string systemName = null)
         {
             var section = (AkkaConfigurationSection)ConfigurationManager.GetSection("akka");
             var clusterConfig = section.AkkaConfig;
 
             var lighthouseConfig = clusterConfig.GetConfig("lighthouse");
-            if (lighthouseConfig != null)
+            if (string.IsNullOrEmpty(systemName) && lighthouseConfig != null)
             {
                 systemName = lighthouseConfig.GetString("actorsystem", systemName);
             }
