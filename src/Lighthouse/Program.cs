@@ -10,6 +10,8 @@
 // under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the 
 // specific language governing permissions and limitations under the License.
+
+using System.Configuration;
 using Topshelf;
 
 namespace Lighthouse
@@ -18,18 +20,22 @@ namespace Lighthouse
     {
         static int Main(string[] args)
         {
+            var actorSystemName = ConfigurationManager.AppSettings["lighthouse.actorsystem"];
+            var hostName = ConfigurationManager.AppSettings["akka.remote.hostname"];
+            var port = int.Parse(ConfigurationManager.AppSettings["akka.remote.port"]);
+
             return (int) HostFactory.Run(x =>
             {
                 x.Service<LighthouseService>(s =>
                 {
-                    s.ConstructUsing(ss => new LighthouseService());
+                    s.ConstructUsing(ss => new LighthouseService(hostName, port, actorSystemName));
                     s.WhenStarted(ss => ss.Start());
                     s.WhenStopped(ss => ss.StopAsync().Wait());
                 });
 
-                x.SetServiceName("Lighthouse");
-                x.SetDisplayName("Lighthouse Service Discovery");
-                x.SetDescription("Lighthouse Service Discovery for Akka.NET Clusters");
+                x.SetServiceName($"Lighthouse{actorSystemName}");
+                x.SetDisplayName($"Lighthouse Service Discovery {actorSystemName}");
+                x.SetDescription($"Lighthouse Service Discovery for Akka.NET Clusters {actorSystemName}");
 
                 x.RunAsNetworkService();
                 x.StartAutomatically();
