@@ -38,11 +38,17 @@
     <Reference Include="Akka.Cluster, Version=1.2.3.41, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Akka.Cluster.1.2.3\lib\net45\Akka.Cluster.dll</HintPath>
     </Reference>
+    <Reference Include="Akka.Cluster.Tools, Version=1.2.3.41, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Akka.Cluster.Tools.1.2.3\lib\net45\Akka.Cluster.Tools.dll</HintPath>
+    </Reference>
     <Reference Include="Akka.Logger.NLog, Version=1.2.0.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Akka.Logger.NLog.1.2.0\lib\net45\Akka.Logger.NLog.dll</HintPath>
     </Reference>
     <Reference Include="Akka.Remote, Version=1.2.3.41, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Akka.Remote.1.2.3\lib\net45\Akka.Remote.dll</HintPath>
+    </Reference>
+    <Reference Include="Akka.Serialization.Hyperion, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Akka.Serialization.Hyperion.1.2.3.43-beta\lib\net45\Akka.Serialization.Hyperion.dll</HintPath>
     </Reference>
     <Reference Include="DotNetty.Buffers, Version=0.0.0.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
       <HintPath>..\..\packages\DotNetty.Buffers.0.4.3\lib\net45\DotNetty.Buffers.dll</HintPath>
@@ -70,6 +76,9 @@
     <Reference Include="Helios, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Helios.2.1.2\lib\net45\Helios.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Hyperion, Version=0.9.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Hyperion.0.9.2\lib\net45\Hyperion.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
